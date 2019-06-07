@@ -182,8 +182,7 @@
             "Body": "OutboundLegId=11235-1906141135--32753-1-13554-1906142020&InboundLegId=13554-1906210640--32302-0-11235-1906210825",
             "Method": "PUT"
           },
-          "FormattedData": "GotoGate: 385.66 GBP 
-  "
+          "FormattedData": "GotoGate: 385.66 GBP"
         },
         {
           "OutboundLegId": {
