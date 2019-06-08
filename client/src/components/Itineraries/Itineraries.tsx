@@ -8,7 +8,7 @@ interface IItinerariesProps {
 
 const Itineraries: React.FC<IItinerariesProps> = (props:IItinerariesProps) => (
   <React.Fragment>
-    { props.itineraries.map(i => <Itinerary {...i} />) }
+    { props.itineraries.map(i => <Itinerary key={i.id} {...i} />) }
   </React.Fragment>
 );
 

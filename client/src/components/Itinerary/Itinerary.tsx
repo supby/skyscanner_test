@@ -1,12 +1,19 @@
 import React from 'react';
-import LegProps from '../Leg/LegProps';
 import Leg from '../Leg';
 import IItineraryProps from './IItineraryProps';
 
 const Itinerary: React.FC<IItineraryProps> = (props: IItineraryProps) => (
   <React.Fragment>
-    <Leg {...props.outboundLeg} />
-    <Leg {...props.inboundLeg} />
+
+    <div className="card">
+      <div className="card-body">
+        <Leg {...props.outboundLeg} />
+        <Leg {...props.inboundLeg} />
+      </div>
+    </div>
+
+
+
   </React.Fragment>
 )
 

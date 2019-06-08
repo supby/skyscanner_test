@@ -8,6 +8,7 @@ import IItineraryProps from '../Itinerary/IItineraryProps';
 // TODO: replace by API call
 const testData: IItineraryProps[] = testApiData.Flights.Itineraries.map(i => {
   return {
+    id: i.OutboundLegId.Id,
     outboundLeg: {
       originStationCode: i.OutboundLegId.OriginStation.Code,
       destinationStationCode: i.OutboundLegId.DestinationStation.Code,
