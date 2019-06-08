@@ -1,0 +1,31 @@
+.leg-container {
+  padding: 0 0 12px 0;
+}
+
+.leg-col {
+  padding: 0;
+}
+
+.leg-col-last {
+  text-align: right;
+  padding-right: 10px;
+}
+
+.leg-place-code {
+  color: #837e91;
+}
+
+.leg-arrow {
+  color: #837e91;
+  padding: 0;
+}
+
+.leg-duration {
+  color: #837e91;
+  font-size: 0.8em;
+}
+
+.leg-direct {
+  font-size: 0.8em;
+  color: #06d879;
+}
