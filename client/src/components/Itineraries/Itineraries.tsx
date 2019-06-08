@@ -1,6 +1,6 @@
 import React from 'react';
 import Itinerary from '../Itinerary'
-import IItineraryProps from '../Itinerary/IItineraryProps';
+import IItineraryProps from '../Itinerary/ItineraryProps';
 
 interface IItinerariesProps {
   itineraries: IItineraryProps[];

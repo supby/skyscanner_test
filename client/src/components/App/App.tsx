@@ -3,8 +3,9 @@ import './App.css';
 import Header from '../Header';
 import Itineraries from '../Itineraries'
 import testApiData from '../../data/testApiData'
-import IItineraryProps from '../Itinerary/IItineraryProps';
+import IItineraryProps from '../Itinerary/ItineraryProps';
 import QueryInfo from '../QueryInfo'
+import ToolBar from '../ToolBar'
 
 // TODO: replace by API call
 const testData: IItineraryProps[] = testApiData.Flights.Itineraries.map(i => {
@@ -33,8 +34,8 @@ const testData: IItineraryProps[] = testApiData.Flights.Itineraries.map(i => {
 const queryInfoTestData = {
   fromCode: testApiData.Query.OriginPlace,
   toCode: testApiData.Query.DestinationPlace,
-  passengersCount: testApiData.Query.Adults + testApiData.Query.Children + testApiData.Query.Infants,
-  flighType: testApiData.Query.CabinClass
+  travellersCount: testApiData.Query.Adults + testApiData.Query.Children + testApiData.Query.Infants,
+  cabinClass: testApiData.Query.CabinClass
 };
 
 const App: React.FC = () => {
@@ -43,7 +44,7 @@ const App: React.FC = () => {
       <Header />
       <main>
         <QueryInfo {...queryInfoTestData}/>
-        {/* TODO: <ToolBar /> */}
+        <ToolBar />
         <Itineraries itineraries={testData} />
       </main>
     </div>

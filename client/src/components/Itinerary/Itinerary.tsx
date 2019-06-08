@@ -1,6 +1,6 @@
 import React from 'react';
 import Leg from '../Leg';
-import IItineraryProps from './IItineraryProps';
+import IItineraryProps from './ItineraryProps';
 
 const Itinerary: React.FC<IItineraryProps> = (props: IItineraryProps) => (
   <React.Fragment>

@@ -6,12 +6,11 @@ const QueryInfo: React.FC<IQueryInfoProps> = (props: IQueryInfoProps) => (
   <div className="query-info">
     <div className="direction-info">
       {props.fromCode}
-      <span>&#10140;</span>
+      <span>&nbsp;&#10140;&nbsp;</span>
       {props.toCode}
     </div>
-    <div className="travellers-info">2 travellers, economy</div>
+    <div className="travellers-info">{props.travellersCount} travellers, {props.cabinClass}</div>
   </div>
 )
 
-export default QueryInfo
-;
+export default QueryInfo;
