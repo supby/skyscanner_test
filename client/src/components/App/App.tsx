@@ -42,8 +42,8 @@ export default class App extends Component<{}, IAppState> {
       console.error(`API call is failed: ${res.statusText}`);
       return;
     }
-    console.log((await res.json()));
-    const data = (await res.json());
+    const data = await res.json();
+    console.log(data);
     const itineraries = data.Itineraries.map(i => {
       return {
         id: i.OutboundLegId.Id,
