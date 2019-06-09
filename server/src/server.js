@@ -24,14 +24,16 @@ app.get('/', (req, res) => {
   API params and location values are here:
   http://business.skyscanner.net/portal/en-GB/Documentation/FlightsLivePricingQuickStart
 */
-app.get('/api/search', async (req, res) => {
+app.get('/api/search/:originplace/:destinationplace/:outbounddate/:inbounddate/:adults/:children/:infants', async (req, res) => {
   try {
     const results = await livePricing.search({
-    /*
-     TODO: client to provide params.
-     Some params are already provided for you - see live-pricing.js.
-     Check API docs to see the other params you need to provide.
-     */
+      originplace: req.params.originplace,
+      destinationplace: req.params.destinationplace,
+      outbounddate: req.params.outbounddate,
+      inbounddate: req.params.inbounddate,
+      adults: req.params.adults,
+      children: req.params.children,
+      infants: req.params.infants
     });
     // TODO - a better format for displaying results to the client
     console.log('TODO: transform results for consumption by client');

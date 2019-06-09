@@ -1,6 +1,10 @@
-export default interface IQueryInfoProps {
-  fromCode: string;
-  toCode: string;
-  travellersCount: number;
+export default interface IQueryProps {
+  origin: string;
+  destination: string;
+  outbounddate: string;
+  inbounddate: string;
+  adults: number;
+  children: number;
+  infants: number;
   cabinClass: string;
 }

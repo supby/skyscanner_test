@@ -1,15 +1,17 @@
 import React from 'react';
-import IQueryInfoProps from './QueryInfoProps';
+import IQueryProps from './QueryInfoProps';
 import './QueryInfo.css';
 
-const QueryInfo: React.FC<IQueryInfoProps> = (props: IQueryInfoProps) => (
+const QueryInfo: React.FC<IQueryProps> = (props: IQueryProps) => (
   <div className="query-info">
     <div className="direction-info">
-      {props.fromCode}
+      {props.origin}
       <span>&nbsp;&#10140;&nbsp;</span>
-      {props.toCode}
+      {props.destination}
     </div>
-    <div className="travellers-info">{props.travellersCount} travellers, {props.cabinClass}</div>
+    <div className="travellers-info">
+      {props.adults + props.children + props.infants} travellers, {props.cabinClass}
+    </div>
   </div>
 )
 
