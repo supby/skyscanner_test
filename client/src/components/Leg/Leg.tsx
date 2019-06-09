@@ -14,7 +14,7 @@ const Leg: React.FC<LegProps> = (props: LegProps) => (
     <tbody>
       <tr>
         <td className="leg-logo-td" rowSpan={2}>
-          <img className="leg-airline-logo" src="https://logos.skyscnr.com/images/airlines/favicon/EZ.png" />
+          <img className="leg-airline-logo" src="https://logos.skyscnr.com/images/airlines/favicon/EZ.png" alt="E" />
         </td>
         <td>{moment(props.departureDate).format('HH:mm')}</td>
         <td className="leg-arrow" rowSpan={2}>&nbsp;&#10140;&nbsp;</td>
