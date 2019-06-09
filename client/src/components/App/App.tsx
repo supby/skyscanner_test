@@ -33,8 +33,8 @@ const testData: IItineraryProps[] = testApiData.Flights.Itineraries.map(i => {
 });
 
 const queryInfoTestData = {
-  fromCode: testApiData.Query.OriginPlace,
-  toCode: testApiData.Query.DestinationPlace,
+  fromCode: 'EDI',
+  toCode: 'LHR',
   travellersCount: testApiData.Query.Adults + testApiData.Query.Children + testApiData.Query.Infants,
   cabinClass: testApiData.Query.CabinClass
 };
