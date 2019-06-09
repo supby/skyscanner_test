@@ -27,7 +27,8 @@ const testData: IItineraryProps[] = testApiData.Flights.Itineraries.map(i => {
       duration: i.InboundLegId.Duration,
       stopsCount: i.InboundLegId.Stops.length
     },
-    price: i.PricingOptions[0].Price
+    price: i.PricingOptions[0].Price,
+    currencySymbol: testApiData.Flights.Currencies[0].Symbol
   }
 });
 

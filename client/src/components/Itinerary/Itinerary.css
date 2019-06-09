@@ -5,3 +5,20 @@
 .it-card-body {
   padding: 10px;
 }
+
+.it-select-btn {
+  color: white;
+  background-image: linear-gradient(to bottom, #00d675, #00bf69);
+  border-radius: 10%;
+}
+
+.it-price-col {
+  text-align: left;
+  padding-left: 0;
+  font-size: 1.5em;
+}
+
+.it-select-col {
+  text-align: right;
+  padding-right: 0;
+}

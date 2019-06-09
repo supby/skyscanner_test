@@ -5,4 +5,5 @@ export default interface IItineraryProps {
   outboundLeg: LegProps;
   inboundLeg: LegProps;
   price: number;
+  currencySymbol: string;
 }
