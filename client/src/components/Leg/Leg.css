@@ -1,9 +1,10 @@
-.leg-container {
-  padding: 0 0 12px 0;
-}
-
 .leg-col {
   padding: 0;
+}
+
+.leg-table {
+  width:100%;
+  margin-bottom: 12px;
 }
 
 .leg-col-last {
@@ -18,14 +19,33 @@
 .leg-arrow {
   color: #837e91;
   padding: 0;
+  vertical-align: middle;
 }
 
 .leg-duration {
   color: #837e91;
+}
+
+.leg-last-col {
   font-size: 0.8em;
+  text-align: right;
 }
 
 .leg-direct {
-  font-size: 0.8em;
   color: #06d879;
+}
+
+.leg-indirect {
+  color: #ea6515;
+}
+
+.leg-airline-logo {
+  height: 24px;
+  width: 24px;
+  border-radius: 4px;
+}
+
+.leg-logo-td {
+  text-align: left;
+  vertical-align: top;
 }

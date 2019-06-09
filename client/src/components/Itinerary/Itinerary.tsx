@@ -5,7 +5,7 @@ import './Itinerary.css';
 
 const Itinerary: React.FC<IItineraryProps> = (props: IItineraryProps) => (
   <div className="card bkp-itinerary">
-    <div className="card-body">
+    <div className="card-body it-card-body">
       <Leg {...props.outboundLeg} />
       <Leg {...props.inboundLeg} />
     </div>
