@@ -1,5 +1,14 @@
-const _ = require('lodash');
-const uuidv1 = require('uuid/v1');
+const _ = require("lodash");
+const uuidv1 = require("uuid/v1");
+
+const formatLeg = (leg, placesMap) => ({
+  originStationCode: placesMap[leg.OriginStation][0].Code,
+  destinationStationCode: placesMap[leg.DestinationStation][0].Code,
+  departureDate: leg.Departure,
+  arrivalDate: leg.Arrival,
+  duration: leg.Duration,
+  stopsCount: leg.Stops.length,
+});
 
 const formatPricingData = async pricingData => {
   console.log("Formatting pricing data..");
@@ -12,24 +21,8 @@ const formatPricingData = async pricingData => {
       const inboundLeg = legsMap[i.InboundLegId][0];
       return {
         id: uuidv1(),
-        outboundLeg: {
-          originStationCode: placesMap[outboundLeg.OriginStation][0].Code,
-          destinationStationCode:
-            placesMap[outboundLeg.DestinationStation][0].Code,
-          departureDate: outboundLeg.Departure,
-          arrivalDate: outboundLeg.Arrival,
-          duration: outboundLeg.Duration,
-          stopsCount: outboundLeg.Stops.lengths
-        },
-        inboundLeg: {
-          originStationCode: placesMap[inboundLeg.OriginStation][0].Code,
-          destinationStationCode:
-            placesMap[inboundLeg.DestinationStation][0].Code,
-          departureDate: inboundLeg.Departure,
-          arrivalDate: inboundLeg.Arrival,
-          duration: inboundLeg.Duration,
-          stopsCount: inboundLeg.Stops.length
-        },
+        outboundLeg: formatLeg(outboundLeg, placesMap),
+        inboundLeg: formatLeg(inboundLeg, placesMap),
         price: i.PricingOptions[0].Price,
         currencySymbol: pricingData.Currencies[0].Symbol
       };

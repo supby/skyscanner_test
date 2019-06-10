@@ -6,13 +6,15 @@ import IItineraryProps from '../Itinerary/ItineraryProps';
 import QueryInfo from '../QueryInfo'
 import ToolBar from '../ToolBar'
 import IQueryProps from '../QueryInfo/QueryInfoProps';
+import moment from 'moment';
 
 // TODO: implement query box, now hardcoded
+const nextMonday = moment().add(1, 'weeks').day(1);
 const testQuery = {
   origin: 'EDI',
   destination: 'LHR',
-  outbounddate: '2019-06-10', //TODO: calculate next monday form now
-  inbounddate: '2019-06-11',
+  outbounddate: nextMonday.format('YYYY-MM-DD'),
+  inbounddate: nextMonday.add(1, 'day').format('YYYY-MM-DD'),
   adults: 2,
   children: 1,
   infants: 0,
@@ -23,6 +25,7 @@ const testQuery = {
 interface IAppState {
   query: IQueryProps;
   itineraries: IItineraryProps[];
+  isLoading: boolean;
 }
 
 export default class App extends Component<{}, IAppState> {
@@ -31,7 +34,8 @@ export default class App extends Component<{}, IAppState> {
 
     this.state = {
       query: testQuery,
-      itineraries: []
+      itineraries: [],
+      isLoading: true
     }
   }
 
@@ -46,7 +50,7 @@ export default class App extends Component<{}, IAppState> {
 
   async componentDidMount() {
     const data = await this.getData();
-    this.setState({ ...data })
+    this.setState({ ...data, isLoading: false });
   }
 
   render() {
@@ -56,7 +60,7 @@ export default class App extends Component<{}, IAppState> {
         <main>
           <QueryInfo {...this.state.query} />
           <ToolBar />
-          <Itineraries itineraries={this.state.itineraries} />
+          <Itineraries isLoading={this.state.isLoading} itineraries={this.state.itineraries} />
         </main>
       </div>
     );
