@@ -5,6 +5,7 @@ const express = require('express');
 
 const app = express();
 const livePricing = require('./live-pricing');
+const dataFormatter = require('./dataFormatter');
 
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
@@ -18,9 +19,6 @@ app.get('/', (req, res) => {
 
 /**
   Simple flight search api wrapper.
-
-  TODO: client should provide params.
-
   API params and location values are here:
   http://business.skyscanner.net/portal/en-GB/Documentation/FlightsLivePricingQuickStart
 */
@@ -35,9 +33,7 @@ app.get('/api/search/:originplace/:destinationplace/:outbounddate/:inbounddate/:
       children: req.params.children,
       infants: req.params.infants
     });
-    // TODO - a better format for displaying results to the client
-    console.log('TODO: transform results for consumption by client');
-    res.json(results);
+    res.json(await dataFormatter.formatPricingData(results));
   } catch (err) {
     res.status(500).send(err);
     console.error(err);
