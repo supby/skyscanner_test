@@ -31,7 +31,7 @@ app.get('/api/search/:originplace/:destinationplace/:outbounddate/:inbounddate/:
       inbounddate: req.params.inbounddate,
       adults: req.params.adults,
       children: req.params.children,
-      infants: req.params.infants
+      infants: req.params.infants,
     });
     res.json(await dataFormatter.formatPricingData(results));
   } catch (err) {

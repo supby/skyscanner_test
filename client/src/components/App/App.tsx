@@ -35,44 +35,18 @@ export default class App extends Component<{}, IAppState> {
     }
   }
 
-  // TODO: move api calls to some effects/actions creator (like redux-saga)
   async getData() {
     const res = await fetch(`http://localhost:4000/api/search/${this.state.query.origin}/${this.state.query.destination}/${this.state.query.outbounddate}/${this.state.query.inbounddate}/${this.state.query.adults}/${this.state.query.children}/${this.state.query.infants}`);
     if (res.status !== 200) {
       console.error(`API call is failed: ${res.statusText}`);
       return;
     }
-    const data = await res.json();
-    console.log(data);
-    const itineraries = data.Itineraries.map(i => {
-      return {
-        id: i.OutboundLegId.Id,
-        outboundLeg: {
-          originStationCode: i.OutboundLegId.OriginStation.Code,
-          destinationStationCode: i.OutboundLegId.DestinationStation.Code,
-          departureDate: i.OutboundLegId.Departure,
-          arrivalDate: i.OutboundLegId.Arrival,
-          duration: i.OutboundLegId.Duration,
-          stopsCount: i.OutboundLegId.Stops.length
-        },
-        inboundLeg: {
-          originStationCode: i.InboundLegId.OriginStation.Code,
-          destinationStationCode: i.InboundLegId.DestinationStation.Code,
-          departureDate: i.InboundLegId.Departure,
-          arrivalDate: i.InboundLegId.Arrival,
-          duration: i.InboundLegId.Duration,
-          stopsCount: i.InboundLegId.Stops.length
-        },
-        price: i.PricingOptions[0].Price,
-        currencySymbol: data.Currencies[0].Symbol
-      }
-    });
-    return itineraries;
+    return res.json();
   }
 
   async componentDidMount() {
-    const itineraries = await this.getData();
-    this.setState({ ...itineraries })
+    const data = await this.getData();
+    this.setState({ ...data })
   }
 
   render() {
