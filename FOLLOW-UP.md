@@ -10,7 +10,7 @@
 ### Q) What is the command to start the server?
 
 (Default) `APIKEY=<key> npm run server`
-i used `APIKEY=<key> npm start`
+i also used `cd server && APIKEY=<key> npm start` on linux or `set APIKEY=<key> && cd server && npm start` on windows.
 
 ---
 
@@ -29,6 +29,8 @@ i used `APIKEY=<key> npm start`
 4. Probably it is worth to delegate JSON transforming t some external services. In that case NodeJS could be used.
 5. Adding Unit tests. I love writing tests but somehow it needs to stop doing task :)
 6. Using https://www.npmjs.com/package/ts-node on server side.(if still NodeJS based)
+7. Using some memory cache service on server side. (Redis)
+8. Addin some API data validation on server.
 
 ### Q) Which parts are you most proud of? And why?
 
